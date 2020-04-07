@@ -12,7 +12,7 @@
       let choice
       do{
         choice = prompt("Choose either Rock[1], Paper[2] or Scissors[3]")
-      } while (isNaN(choice) || (choice < 1 || choice > 3))
+      } while (Number(choice) == NaN || (choice < 1 || choice > 3))
       return choices[choice - 1]
     }
 

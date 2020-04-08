@@ -1,0 +1,29 @@
+<html>
+<body>
+  <script>
+    let choices = [`Rock`,`Paper`,`Scissors`]
+    let playerSelection = getPlayerSelection()
+    let computerSelection = computerPlay()
+
+    function computerPlay(){
+      return choices[Math.floor(Math.random() * 3)]
+    }
+
+    function getPlayerSelection(){
+      let choice
+      do{
+        choice = prompt("Choose either Rock[1], Paper[2] or Scissors[3]")
+      } while (isNaN(choice) || (choice < 1 || choice > 3))
+      return choices[choice - 1]
+    }
+
+    function playRound(playerSelection, computerSelection){
+      if (playerSelection == computerSelection){
+        return `Draw! You both selected ${playerSelection}`
+      }
+    }
+
+  </script>
+</body>
+
+</html>

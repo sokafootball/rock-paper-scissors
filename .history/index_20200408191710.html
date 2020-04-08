@@ -37,9 +37,13 @@
       if (playerSelection == computerSelection){
         return `Draw! You both selected ${playerSelection}`
       }
+      /*
       if (playerSelection == ROCK){
         if (computerSelection == PAPER) return showLoseMessage(playerSelection, computerSelection)
         return showWinMessage(playerSelection, computerSelection)
+      }*/
+       if (playerSelection == ROCK){
+        computerSelection == PAPER ? showLoseMessage(playerSelection, computerSelection) : showWinMessage(playerSelection, computerSelection)
       }
       if (playerSelection == SCISSORS){
         if (computerSelection == ROCK) return showLoseMessage(playerSelection, computerSelection)

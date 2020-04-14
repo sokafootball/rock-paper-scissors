@@ -15,8 +15,7 @@
     const buttons = document.querySelectorAll(`button`)
 
     buttons.forEach(button => button.addEventListener(`click`, (e) => {
-      let playerSelection = e.target.innerText
-      game(playerSelection)
+      game(e.target.innerText)
     }))
 
     function game(playerSelection){

@@ -12,12 +12,10 @@
     const rockButton = document.querySelector(`#rock-btn`)
     const paperButton = document.querySelector(`#paper-btn`)
     const scissorsButton = document.querySelector(`#scissors-btn`)
-    const buttons = document.querySelectorAll(`button`)
 
-    buttons.forEach(button => button.addEventListener(`click`, (e) => {
-      let playerSelection = e.target.innerText
-      game(playerSelection)
-    }))
+    rockButton.addEventListener(`click`, (e) => {
+      game(e.target.innerText)
+    })
 
     function game(playerSelection){
         let computerSelection = computerPlay()
@@ -26,6 +24,14 @@
 
     function computerPlay(){
       return CHOICES[Math.floor(Math.random() * 3)]
+    }
+
+    function getPlayerSelection(){
+      let choice
+      do{
+        choice = prompt("Choose either Rock[1], Paper[2] or Scissors[3]")
+      } while (isNaN(choice) || (choice < 1 || choice > 3))
+      return CHOICES[choice - 1]
     }
 
     function showLoseMessage(playerSelection, computerSelection){

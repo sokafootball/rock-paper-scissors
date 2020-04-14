@@ -8,12 +8,9 @@
 <div id="result-div">
 </div>
 <div id="score-div">
-  <p>Player: <span id="player-score-span"></span></p>
-  <p>Computer: <span id="computer-score-span"></span></p>
 </div>
 
   <script>
-    const NUMBER_OF_GAMES = 5
     const ROCK = `Rock`, PAPER = `Paper`, SCISSORS = `Scissors`
     const CHOICES = [ROCK, PAPER, SCISSORS]
     const rockButton = document.querySelector(`#rock-btn`)
@@ -22,20 +19,11 @@
     const buttons = document.querySelectorAll(`button`)
     const resultDiv = document.querySelector(`#result-div`)
     const scoreDiv = document.querySelector(`#score-div`)
-    let playerScoreSpan = document.querySelector(`#player-score-span`)
-    let computerScoreSpan = document.querySelector(`#computer-score-span`)
-    let playerScore = 0
-    let computerScore = 0
-
-    playerScoreSpan.innerText = playerScore
-    computerScoreSpan.innerText = computerScore
 
     buttons.forEach(button => button.addEventListener(`click`, (e) => {
       let playerSelection = e.target.innerText
       game(playerSelection)
     }))
-
-
 
     function game(playerSelection){
         let computerSelection = computerPlay()

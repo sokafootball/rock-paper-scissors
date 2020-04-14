@@ -6,6 +6,7 @@
   <button id="scissors-btn">Scissors</button>
 </div>
 <div id="result-div">
+  <p id="result-p"></p>
 </div>
 
   <script>
@@ -16,6 +17,7 @@
     const scissorsButton = document.querySelector(`#scissors-btn`)
     const buttons = document.querySelectorAll(`button`)
     const resultDiv = document.querySelector(`#result-div`)
+    const resultP = document.querySelector(`#result-p`)
 
     buttons.forEach(button => button.addEventListener(`click`, (e) => {
       let playerSelection = e.target.innerText
@@ -24,8 +26,8 @@
 
     function game(playerSelection){
         let computerSelection = computerPlay()
-        let gameResult = playRound(playerSelection, computerSelection)
-        resultDiv.innerText = gameResult
+
+        console.log(playRound(playerSelection, computerSelection))
     }
 
     function computerPlay(){

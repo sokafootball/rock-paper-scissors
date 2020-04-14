@@ -1,16 +1,19 @@
 <html>
 <body>
+<div id="buttons-div">
+  <button id="rock-btn">Rock</button>
+  <button id="rock-btn">Rock</button>
+  <button id="rock-btn">Rock</button>
+</div>
+
   <script>
     const ROCK = `Rock`, PAPER = `Paper`, SCISSORS = `Scissors`
     const CHOICES = [ROCK, PAPER, SCISSORS]
-    const NUMBEROFGAMES = 5
 
     function game(){
-      for (let i = 1; i <= NUMBEROFGAMES; i++){
         let playerSelection = getPlayerSelection()
         let computerSelection = computerPlay()
         console.log(playRound(playerSelection, computerSelection))
-      }
     }
 
     function computerPlay(){

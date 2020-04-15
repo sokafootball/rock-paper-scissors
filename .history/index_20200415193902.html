@@ -36,9 +36,9 @@
     }))
 
     function game(playerSelection){
-      let computerSelection = computerPlay()
-      let gameResult = playRound(playerSelection, computerSelection)
-      resultDiv.innerText = gameResult
+        let computerSelection = computerPlay()
+        let gameResult = playRound(playerSelection, computerSelection)
+        resultDiv.innerText = gameResult
     }
 
     function computerPlay(){
@@ -53,21 +53,21 @@
 
     //there should be only one function for lose and win
     function loseRound(playerSelection, computerSelection){
+      showLostRoundMessage(playerSelection, computerSelection)
       computerScore++
-      computerScoreSpan.innerText = computerScore
+      //computerScoreSpan.innerText = computerScore
       if (computerScore >= NUMBER_OF_GAMES){
         //endGame()
       }
-      return showLostRoundMessage(playerSelection, computerSelection)
     }
 
     function winRound(playerSelection, computerSelection){
+      showWonRoundMessage(playerSelection, computerSelection)
       playerScore++
-      playerScoreSpan.innerText = playerScore
+      //playerScoreSpan.innerText = playerScore
       if (playerScore >= NUMBER_OF_GAMES){
         //endGame()
       }
-      return showWonRoundMessage(playerSelection, computerSelection)
     }
 
     function showLostRoundMessage(playerSelection, computerSelection){
@@ -77,6 +77,8 @@
      function showWonRoundMessage(playerSelection, computerSelection){
       return `You Win! ${playerSelection} beats ${computerSelection}`
     }
+
+
 
     function playRound(playerSelection, computerSelection){
       if (playerSelection == computerSelection){

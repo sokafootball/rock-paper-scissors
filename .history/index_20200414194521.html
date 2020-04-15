@@ -1,0 +1,80 @@
+<html>
+<body>
+<div id="buttons-div">
+  <button id="rock-btn">Rock</button>
+  <button id="paper-btn">Paper</button>
+  <button id="scissors-btn">Scissors</button>
+</div>
+<div id="result-div">
+</div>
+<div id="score-div">
+  <p>Player: <span id="player-score-span"></span></p>
+  <p>Computer: <span id="computer-score-span"></span></p>
+</div>
+
+  <script>
+    const NUMBER_OF_GAMES = 5
+    const ROCK = `Rock`, PAPER = `Paper`, SCISSORS = `Scissors`
+    const CHOICES = [ROCK, PAPER, SCISSORS]
+    const rockButton = document.querySelector(`#rock-btn`)
+    const paperButton = document.querySelector(`#paper-btn`)
+    const scissorsButton = document.querySelector(`#scissors-btn`)
+    const buttons = document.querySelectorAll(`button`)
+    const resultDiv = document.querySelector(`#result-div`)
+    const scoreDiv = document.querySelector(`#score-div`)
+    let playerScoreSpan = document.querySelector(`#player-score-span`)
+    let computerScoreSpan = document.querySelector(`#computer-score-span`)
+    let playerScore = 0
+    let computerScore = 0
+
+    playerScoreSpan.innerText = playerScore
+    computerScoreSpan = computerScore
+    buttons.forEach(button => button.addEventListener(`click`, (e) => {
+      let playerSelection = e.target.innerText
+      game(playerSelection)
+    }))
+
+
+
+    function game(playerSelection){
+        let computerSelection = computerPlay()
+        let gameResult = playRound(playerSelection, computerSelection)
+        resultDiv.innerText = gameResult
+    }
+
+    function computerPlay(){
+      return CHOICES[Math.floor(Math.random() * 3)]
+    }
+
+    function showLoseMessage(playerSelection, computerSelection){
+      return `You Lose! ${computerSelection} beats ${playerSelection}`
+    }
+
+     function showWinMessage(playerSelection, computerSelection){
+      return `You Win! ${playerSelection} beats ${computerSelection}`
+    }
+
+
+
+    function playRound(playerSelection, computerSelection){
+      if (playerSelection == computerSelection){
+        return `Draw! You both selected ${playerSelection}`
+      }
+      if (playerSelection == ROCK){
+        if (computerSelection == PAPER) return showLoseMessage(playerSelection, computerSelection)
+        return showWinMessage(playerSelection, computerSelection)
+      }
+      if (playerSelection == SCISSORS){
+        if (computerSelection == ROCK) return showLoseMessage(playerSelection, computerSelection)
+        return showWinMessage(playerSelection, computerSelection)
+      }
+      if (playerSelection == PAPER){
+        if (computerSelection == SCISSORS) return showLoseMessage(playerSelection, computerSelection)
+        return showWinMessage(playerSelection, computerSelection)
+      }
+    }
+
+  </script>
+</body>
+
+</html>

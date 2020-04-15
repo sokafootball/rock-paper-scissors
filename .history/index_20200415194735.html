@@ -5,13 +5,11 @@
   <button id="paper-btn">Paper</button>
   <button id="scissors-btn">Scissors</button>
 </div>
-<div id="round-result-div">
+<div id="result-div">
 </div>
 <div id="score-div">
   <p>Player: <span id="player-score-span"></span></p>
   <p>Computer: <span id="computer-score-span"></span></p>
-</div>
-<div id="final-result-div">
 </div>
 
   <script>
@@ -22,8 +20,7 @@
     const paperButton = document.querySelector(`#paper-btn`)
     const scissorsButton = document.querySelector(`#scissors-btn`)
     const buttons = document.querySelectorAll(`button`)
-    const roundResultDiv = document.querySelector(`#round-result-div`)
-    const finalResultDiv = document.querySelector(`#final-result-div`)
+    const resultDiv = document.querySelector(`#result-div`)
     const scoreDiv = document.querySelector(`#score-div`)
     let playerScoreSpan = document.querySelector(`#player-score-span`)
     let computerScoreSpan = document.querySelector(`#computer-score-span`)
@@ -41,7 +38,7 @@
     function game(playerSelection){
       let computerSelection = computerPlay()
       let gameResult = playRound(playerSelection, computerSelection)
-      roundResultDiv.innerText = gameResult
+      resultDiv.innerText = gameResult
     }
 
     function computerPlay(){
@@ -50,35 +47,31 @@
 
     //Finish this function
     function endGame(){
-      if(playerScore > computerScore){
-        finalResultDiv.innerText = `Congratulations! You won ${playerScore} to ${computerScore}!`
-      }else{
-        finalResultDiv.innerText = `Hah! You lost ${playerScore} to ${computerScore}!`
-      }
-
+      //display a message
+      resultDiv.innerText = ``
     }
 
     //there should be only one function for lose and win
     function loseRound(playerSelection, computerSelection){
+      showLostRoundMessage(playerSelection, computerSelection)
       computerScore++
       computerScoreSpan.innerText = computerScore
       if (computerScore >= NUMBER_OF_GAMES){
-        endGame()
+        //endGame()
       }
-      return showLostRoundMessage(playerSelection, computerSelection)
     }
 
     function winRound(playerSelection, computerSelection){
+      showWonRoundMessage(playerSelection, computerSelection)
       playerScore++
       playerScoreSpan.innerText = playerScore
       if (playerScore >= NUMBER_OF_GAMES){
-        endGame()
+        //endGame()
       }
-      return showWonRoundMessage(playerSelection, computerSelection)
     }
 
     function showLostRoundMessage(playerSelection, computerSelection){
-      return `You Lose! ${computerSelection} beats ${playerSelection}`
+      resultDiv.innerText = `You Lose! ${computerSelection} beats ${playerSelection}`
     }
 
      function showWonRoundMessage(playerSelection, computerSelection){

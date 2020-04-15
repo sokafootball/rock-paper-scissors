@@ -23,7 +23,6 @@
     const scissorsButton = document.querySelector(`#scissors-btn`)
     const buttons = document.querySelectorAll(`button`)
     const roundResultDiv = document.querySelector(`#round-result-div`)
-    const finalResultDiv = document.querySelector(`#final-result-div`)
     const scoreDiv = document.querySelector(`#score-div`)
     let playerScoreSpan = document.querySelector(`#player-score-span`)
     let computerScoreSpan = document.querySelector(`#computer-score-span`)
@@ -50,12 +49,7 @@
 
     //Finish this function
     function endGame(){
-      if(playerScore > computerScore){
-        finalResultDiv.innerText = `Congratulations! You won ${playerScore} to ${computerScore}!`
-      }else{
-        finalResultDiv.innerText = `Hah! You lost ${playerScore} to ${computerScore}!`
-      }
-
+      roundResultDiv.innerText = ``
     }
 
     //there should be only one function for lose and win
